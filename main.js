@@ -1,10 +1,11 @@
 async function query() {
-    const data = await fetch("movielist.json");
+    const data = await fetch("movie.json");
 
     let eredmeny = document.getElementById("result");
 
     if (!data.ok) {
-        throw new Error('Query failed'); //todo hiba üzenet
+        eredmeny.innerHTML += `<div class=\"error\"> Nem sikerült betölteni az adatokat </div>`;
+        return;
     }
 
     let list = await data.json();
@@ -53,6 +54,8 @@ async function query() {
 
             document.getElementById("cast").addEventListener('click', () => {
                 eredmeny.innerHTML = "";
+
+                createResetButton();
            
                 for (let j = 0; j < list.length; j++) {
                     let print = false;
@@ -73,6 +76,8 @@ async function query() {
 
             document.getElementById("genre").addEventListener('click', () => {
                 eredmeny.innerHTML = "";
+
+                createResetButton();
            
                 for (let j = 0; j < list.length; j++) {
                     let print = false;
