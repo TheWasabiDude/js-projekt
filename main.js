@@ -59,11 +59,12 @@ async function query() {
                     for (let k = 0; k < list[j].cast.length; k++) {
                         if (list[index].cast.includes(list[j].cast[k])) {
                             print = true;
+                            break;
                         }
                     }
 
                     if (print) {
-                        eredmeny.innerHTML += `<div> Név: ${list[j].title} (${list[j].year}) </div>`;
+                        eredmeny.innerHTML += `<div> ${list[j].title} (${list[j].year}) </div>`;
                     }
                 }
 
@@ -78,11 +79,12 @@ async function query() {
                     for (let k = 0; k < list[j].genres.length; k++) {
                         if (list[index].genres.includes(list[j].genres[k])) {
                             print = true;
+                            break;
                         }
                     }
 
                     if (print) {
-                        eredmeny.innerHTML += `<div> Név: ${list[j].title} (${list[j].year}) </div>`;
+                        eredmeny.innerHTML += `<div> ${list[j].title} (${list[j].year}) </div>`;
                     }
                 }
 
