@@ -35,8 +35,8 @@ async function query() {
 
             eredmeny.innerHTML += `<div> Név: ${list[index].title} </div>`;
             eredmeny.innerHTML += `<div> Kiadási év: ${list[index].year}`;
-            eredmeny.innerHTML += `<div id=\"cast\"> Szereplő lista: ${list[index].cast.toString().replace(/,/g, ', ')} </div>`;
-            eredmeny.innerHTML += `<div id=\"genre\"> Műfaj: ${list[index].genres.toString().replace(/,/g, ', ')}</div>`;
+            eredmeny.innerHTML += `<div id=\"cast\"><a href=\"\"> Szereplő lista: ${list[index].cast.toString().replace(/,/g, ', ')} </a><</div>`;
+            eredmeny.innerHTML += `<div id=\"genre\"><a href=\"\"> Műfaj: ${list[index].genres.toString().replace(/,/g, ', ')}</a></div>`;
 
             function createResetButton() {
                 const reset = document.createElement("BUTTON");
@@ -52,10 +52,9 @@ async function query() {
 
             createResetButton();
 
-            document.getElementById("cast").addEventListener('click', () => {
+            document.getElementById("cast").addEventListener('click', (e) => {
+                e.preventDefault();
                 eredmeny.innerHTML = "";
-
-                createResetButton();
            
                 for (let j = 0; j < list.length; j++) {
                     let print = false;
@@ -74,10 +73,9 @@ async function query() {
                 createResetButton();
             });
 
-            document.getElementById("genre").addEventListener('click', () => {
+            document.getElementById("genre").addEventListener('click', (e) => {
+                e.preventDefault();
                 eredmeny.innerHTML = "";
-
-                createResetButton();
            
                 for (let j = 0; j < list.length; j++) {
                     let print = false;
